@@ -1,4 +1,4 @@
-## What it this?
+## What is this?
 This is a startup project to show people how to use PIXI.js with Typescript and Webpack.
 
 ## Getting started 
@@ -9,7 +9,7 @@ This is a startup project to show people how to use PIXI.js with Typescript and 
 - **`npm install`** - Installs the dependencies
 - **`npm run build`** - Builds the project
 - **`npm run startServer`** - This will start a local server on your machine and then it
- will automatically open a new tab in your browser with your project
+ will automatically open a new tab in your browser with your Pixi project
 
 If you use WebStorm or another IDE like it, just open the public/index.html from your IDE
 
