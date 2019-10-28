@@ -1,53 +1,56 @@
 import {ApplicationOptions} from 'pixi.js';
 
 
-new class Main {
-    app: PIXI.Application;
-    animation: PIXI.spine.Spine;
+export class Main {
+    private _app: PIXI.Application;
+    private _pixiSpine: PIXI.spine.Spine;
     private _spineJson_Test: string = 'assets/Background_FrontalGarden_Landscape.json';
 
-    settings: ApplicationOptions = {
+    private _settings: ApplicationOptions = {
         backgroundColor: 0xFFFFFF,
         antialias: true
     };
 
     constructor() {
-        this.app = new PIXI.Application(window.innerWidth, window.innerHeight, this.settings);
-        document.body.appendChild(this.app.view);
+        this._app = new PIXI.Application(window.innerWidth, window.innerHeight, this._settings);
+        document.body.appendChild(this._app.view);
 
-        /**Stops the app for a little while the spine gets loaded */
-        this.app.stop();
+        //Stops the app for a little while the spine gets loaded
+        this._app.stop();
 
+        // Loading the spine into the PIXI loader
         PIXI.loader
             .add('spineCharacter', this._spineJson_Test)
             .load((loader, resources) => {
-                console.log(resources.spineCharacter.spineData);
+
+                // Creating the pixi spine
+                this._pixiSpine = new PIXI.spine.Spine(resources.spineCharacter.spineData);
+                this._pixiSpine.skeleton.setToSetupPose();
+                this._pixiSpine.skeleton.setSkinByName(resources.spineCharacter.spineData.skins[1].name);
+
+                // Setting the spine's position
+                this._pixiSpine.position.set(this._app.screen.width / 2, this._app.screen.height);
+
+                // Adding the spine to the display
+                this._app.stage.addChild(this._pixiSpine);
+
+                console.log('Spine animation name : \n' + this._pixiSpine);
+
+                // Playing the animation
+                this._pixiSpine.state.setAnimation(0, resources.spineCharacter.spineData.animations[0].name, true);
 
 
-                this.animation = new PIXI.spine.Spine(resources.spineCharacter.spineData);
-                this.animation.skeleton.setToSetupPose();
-                this.animation.skeleton.setSkinByName(resources.spineCharacter.spineData.skins[1].name);
-
-
-
-                this.animation.position.set(this.app.screen.width/2,this.app.screen.height);
-                console.log(this.animation);
-
-
-                this.app.stage.addChild(this.animation);
-
-
-                console.log('Spine animation name : ' + resources.spineCharacter.spineData.animations[0].name);
-                this.animation.state.setAnimation(0, resources.spineCharacter.spineData.animations[0].name, true);
-
-
-                this.app.start();
+                this._app.start();
             });
 
 
-        this.app.ticker.add((delta) => {
+        this._app.ticker.add((delta) => {
         });
 
     }
 
+}
+
+window.onload = () => {
+    new Main();
 };
