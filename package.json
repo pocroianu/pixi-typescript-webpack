@@ -1,0 +1,23 @@
+{
+  "name": "typescript_pixijs_v4_boilerplate",
+  "version": "1.0.0",
+  "description": "Simple boilerplate to show how to use PIXI.js with Typescript and Webpack",
+  "main": "public/bundle.js",
+  "scripts": {
+    "build": "webpack",
+    "build:watch": "webpack --watch"
+  },
+  "author": "Geani Pocroianu",
+  "license": "ISC",
+  "dependencies": {
+    "awesome-typescript-loader": "^3.1.2",
+    "copy-webpack-plugin": "^5.0.3",
+    "pixi.js": "4.8.7"
+  },
+  "devDependencies": {
+    "@types/pixi.js": "4.8.6",
+    "typescript": "next",
+    "webpack": "^4.31.0",
+    "webpack-cli": "^3.3.2"
+  }
+}

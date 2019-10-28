@@ -1,0 +1,286 @@
+
+Background_FrontalGarden_Landscape.png
+size: 1952,1794
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Fog4_small
+  rotate: true
+  xy: 1622, 31
+  size: 139, 24
+  orig: 139, 24
+  offset: 0, 0
+  index: -1
+Fog5_small
+  rotate: true
+  xy: 1929, 1549
+  size: 106, 16
+  orig: 106, 16
+  offset: 0, 0
+  index: -1
+New!_steam2
+  rotate: false
+  xy: 1354, 1575
+  size: 528, 217
+  orig: 528, 217
+  offset: 0, 0
+  index: -1
+arm2_small
+  rotate: false
+  xy: 717, 4
+  size: 317, 73
+  orig: 317, 73
+  offset: 0, 0
+  index: -1
+background#10_small
+  rotate: false
+  xy: 1036, 4
+  size: 266, 73
+  orig: 266, 73
+  offset: 0, 0
+  index: -1
+background#19_small
+  rotate: false
+  xy: 1393, 87
+  size: 184, 83
+  orig: 184, 83
+  offset: 0, 0
+  index: -1
+cutback1_small
+  rotate: true
+  xy: 1304, 12
+  size: 65, 48
+  orig: 65, 48
+  offset: 0, 0
+  index: -1
+cutback2_small
+  rotate: true
+  xy: 1354, 3
+  size: 81, 25
+  orig: 81, 25
+  offset: 0, 0
+  index: -1
+cutback3_small
+  rotate: true
+  xy: 1381, 8
+  size: 76, 33
+  orig: 76, 33
+  offset: 0, 0
+  index: -1
+cutback4_small
+  rotate: true
+  xy: 1940, 1657
+  size: 52, 10
+  orig: 52, 10
+  offset: 0, 0
+  index: -1
+far-plan_green_small
+  rotate: true
+  xy: 1884, 1460
+  size: 197, 43
+  orig: 197, 43
+  offset: 0, 0
+  index: -1
+foreground#17
+  rotate: true
+  xy: 1630, 821
+  size: 637, 317
+  orig: 637, 317
+  offset: 0, 0
+  index: -1
+foreground#17_2
+  rotate: true
+  xy: 1630, 182
+  size: 637, 317
+  orig: 637, 317
+  offset: 0, 0
+  index: -1
+foreground#4
+  rotate: true
+  xy: 1350, 172
+  size: 1286, 138
+  orig: 1286, 138
+  offset: 0, 0
+  index: -1
+foreground#4_2
+  rotate: true
+  xy: 1490, 172
+  size: 1286, 138
+  orig: 1286, 138
+  offset: 0, 0
+  index: -1
+leaf_1
+  rotate: true
+  xy: 492, 4
+  size: 70, 40
+  orig: 70, 40
+  offset: 0, 0
+  index: -1
+leaf_1g
+  rotate: true
+  xy: 425, 3
+  size: 71, 41
+  orig: 71, 41
+  offset: 0, 0
+  index: -1
+leaf_2
+  rotate: false
+  xy: 370, 3
+  size: 53, 71
+  orig: 53, 71
+  offset: 0, 0
+  index: -1
+leaf_2g
+  rotate: false
+  xy: 2, 2
+  size: 54, 72
+  orig: 54, 72
+  offset: 0, 0
+  index: -1
+leaf_3
+  rotate: true
+  xy: 1884, 1738
+  size: 54, 64
+  orig: 54, 64
+  offset: 0, 0
+  index: -1
+leaf_3g
+  rotate: false
+  xy: 660, 9
+  size: 55, 65
+  orig: 55, 65
+  offset: 0, 0
+  index: -1
+leaf_4
+  rotate: false
+  xy: 1416, 2
+  size: 40, 83
+  orig: 40, 83
+  offset: 0, 0
+  index: -1
+leaf_4g
+  rotate: false
+  xy: 1350, 86
+  size: 41, 84
+  orig: 41, 84
+  offset: 0, 0
+  index: -1
+leaf_5
+  rotate: true
+  xy: 574, 7
+  size: 67, 37
+  orig: 67, 37
+  offset: 0, 0
+  index: -1
+leaf_5g
+  rotate: true
+  xy: 534, 6
+  size: 68, 38
+  orig: 68, 38
+  offset: 0, 0
+  index: -1
+leaf_6
+  rotate: true
+  xy: 468, 3
+  size: 71, 22
+  orig: 71, 22
+  offset: 0, 0
+  index: -1
+leaf_6g
+  rotate: true
+  xy: 58, 2
+  size: 72, 23
+  orig: 72, 23
+  offset: 0, 0
+  index: -1
+medium-plan#13
+  rotate: false
+  xy: 1350, 1468
+  size: 196, 105
+  orig: 196, 105
+  offset: 0, 0
+  index: -1
+medium-plan#13_2
+  rotate: false
+  xy: 1548, 1468
+  size: 196, 105
+  orig: 196, 105
+  offset: 0, 0
+  index: -1
+medium-plan#7
+  rotate: true
+  xy: 676, 79
+  size: 1713, 672
+  orig: 1713, 672
+  offset: 0, 0
+  index: -1
+medium-plan#7_1
+  rotate: true
+  xy: 2, 76
+  size: 1716, 672
+  orig: 1716, 672
+  offset: 0, 0
+  index: -1
+steam1_2_small
+  rotate: false
+  xy: 1884, 1711
+  size: 61, 25
+  orig: 61, 25
+  offset: 0, 0
+  index: -1
+steam2_2_small
+  rotate: false
+  xy: 1884, 1659
+  size: 51, 22
+  orig: 51, 22
+  offset: 0, 0
+  index: -1
+steam3_2_small
+  rotate: true
+  xy: 1929, 1509
+  size: 38, 15
+  orig: 38, 15
+  offset: 0, 0
+  index: -1
+steam3_small
+  rotate: true
+  xy: 642, 7
+  size: 67, 16
+  orig: 67, 16
+  offset: 0, 0
+  index: -1
+steam4_2_small
+  rotate: true
+  xy: 613, 7
+  size: 67, 27
+  orig: 67, 27
+  offset: 0, 0
+  index: -1
+steam4_small
+  rotate: false
+  xy: 1458, 54
+  size: 118, 31
+  orig: 118, 31
+  offset: 0, 0
+  index: -1
+steam5_2_small
+  rotate: false
+  xy: 1884, 1683
+  size: 54, 26
+  orig: 54, 26
+  offset: 0, 0
+  index: -1
+steam5_small
+  rotate: false
+  xy: 83, 3
+  size: 285, 71
+  orig: 285, 71
+  offset: 0, 0
+  index: -1
+steam6_2_small
+  rotate: true
+  xy: 1579, 11
+  size: 159, 41
+  orig: 159, 41
+  offset: 0, 0
+  index: -1
