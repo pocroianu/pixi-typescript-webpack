@@ -3,8 +3,8 @@ CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const publicFolder = 'public';
 
-var assetsToCopy = [
-    //Spine data
+// The files that will be exported using CopyWebpackPlugin
+let assetsToCopy = [
     {
         from: path.resolve("src/assets"),
         to: path.resolve("public/assets")
@@ -26,7 +26,6 @@ module.exports = {
     output: {
         path: path.join(__dirname, publicFolder),
         filename: 'js/bundle.js',
-        // publicPath: '/'
     },
     resolve: {
         extensions: ['.ts', '.js'],
