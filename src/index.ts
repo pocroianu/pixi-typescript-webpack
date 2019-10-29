@@ -37,7 +37,8 @@ export class Main {
                 console.log('Spine animation name : \n' + this._pixiSpine);
 
                 // Playing the animation
-                this._pixiSpine.state.setAnimation(0, resources.spineCharacter.spineData.animations[0].name, true);
+                let animationName: string = resources.spineCharacter.spineData.animations[0].name;
+                this._pixiSpine.state.setAnimation(0, animationName, true);
 
 
                 this._app.start();
@@ -51,6 +52,7 @@ export class Main {
 
 }
 
+// When the window loads, Main Object will be instantiated
 window.onload = () => {
     new Main();
 };
