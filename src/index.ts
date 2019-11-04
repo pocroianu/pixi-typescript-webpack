@@ -1,7 +1,9 @@
-import {ApplicationOptions} from 'pixi.js';
-
+import ApplicationOptions = PIXI.ApplicationOptions;
+import Facade = puremvc.Facade;
 
 export class Main {
+
+    private _facade: Facade;
     private _app: PIXI.Application;
     private _pixiSpine: PIXI.spine.Spine;
     private _spineJson_Test: string = 'assets/Background_FrontalGarden_Landscape.json';
@@ -12,6 +14,8 @@ export class Main {
     };
 
     constructor() {
+
+        this._facade= Facade.getInstance() as Facade;
         this._app = new PIXI.Application(window.innerWidth, window.innerHeight, this._settings);
         document.body.appendChild(this._app.view);
 
