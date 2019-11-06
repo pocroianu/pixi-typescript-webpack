@@ -84,6 +84,8 @@ declare module puremvc {
 
     export interface INotifier {
         sendNotification(name: string, body?: any, type?: string): void;
+
+        initializeNotifier(key: string): void;
     }
 
     export interface IObserver {
@@ -132,25 +134,32 @@ declare module puremvc {
 
         constructor(notifyMethod: Function, notifyContext: any);
 
-        private getNotifyMethod(): Function;
-
         public setNotifyMethod(notifyMethod: Function): void;
-
-        private getNotifyContext(): any;
 
         public setNotifyContext(notifyContext: any): void;
 
         public notifyObserver(notification: INotification): void;
 
         public compareNotifyContext(object: any): boolean;
+
+        private getNotifyMethod(): Function;
+
+        private getNotifyContext(): any;
     }
 
     export class View
         implements IView {
+        static instanceMap: Object;
+        static MULTITON_MSG: string;
         public mediatorMap: Object;
         public observerMap: Object;
+        public multitonKey: string;
 
-        constructor();
+        constructor(key: string);
+
+        static getInstance(key: string): IView;
+
+        static removeView(key: string): void;
 
         public initializeView(): void;
 
@@ -167,20 +176,21 @@ declare module puremvc {
         public removeMediator(mediatorName: string): IMediator;
 
         public hasMediator(mediatorName: string): boolean;
-
-        static SINGLETON_MSG: string;
-        static instance: IView;
-
-        static getInstance(): IView;
     }
-
 
     export class Controller
         implements IController {
+        static instanceMap: Object;
+        static MULTITON_MSG: string;
         public view: IView;
         public commandMap: Object;
+        public multitonKey: string;
 
-        constructor();
+        constructor(key: string);
+
+        static getInstance(key: string): IController;
+
+        static removeController(key: string): void;
 
         public initializeController(): void;
 
@@ -192,17 +202,20 @@ declare module puremvc {
 
         public removeCommand(notificationName: string): void;
 
-        static instance: IController;
-        static SINGLETON_MSG: string;
-
-        static getInstance(): IController;
     }
 
     export class Model
         implements IModel {
+        static MULTITON_MSG: string;
+        static instanceMap: Object;
         public proxyMap: Object;
+        public multitonKey: string;
 
-        constructor();
+        constructor(key: string);
+
+        static getInstance(key: string): IModel;
+
+        static removeModel(key: string): void;
 
         public initializeModel(): void;
 
@@ -213,11 +226,6 @@ declare module puremvc {
         public retrieveProxy(proxyName: string): IProxy;
 
         public hasProxy(proxyName: string): boolean;
-
-        static SINGLETON_MSG: string;
-        static instance: IModel;
-
-        static getInstance(): IModel;
     }
 
     export class Notification
@@ -243,11 +251,20 @@ declare module puremvc {
 
     export class Facade
         implements IFacade {
+        static MULTITON_MSG: string;
+        static instanceMap: Object;
         public model: IModel;
         public view: IView;
         public controller: IController;
+        public multitonKey: string;
 
-        constructor();
+        constructor(key: string);
+
+        static getInstance(key: string): IFacade;
+
+        static hasCore(key: string): boolean;
+
+        static removeCore(key: string): void;
 
         public initializeFacade(): void;
 
@@ -283,19 +300,19 @@ declare module puremvc {
 
         public sendNotification(name: string, body?: any, type?: string): void;
 
-        static SINGLETON_MSG: string;
-        static instance: IFacade;
-
-        static getInstance(): IFacade;
+        public initializeNotifier(key: string): void;
     }
 
     export class Notifier
         implements INotifier {
-        public facade: IFacade;
+        static MULTITON_MSG: string;
+        public multitonKey: string;
 
-        constructor();
+        public initializeNotifier(key: string): void;
 
         public sendNotification(name: string, body?: any, type?: string): void;
+
+        public facade(): IFacade;
     }
 
     export class MacroCommand
@@ -321,6 +338,7 @@ declare module puremvc {
     export class Mediator
         extends Notifier
         implements IMediator, INotifier {
+        static NAME: string;
         public mediatorName: string;
         public viewComponent: any;
 
@@ -339,13 +357,12 @@ declare module puremvc {
         public onRegister(): void;
 
         public onRemove(): void;
-
-        static NAME: string;
     }
 
     export class Proxy
         extends Notifier
         implements IProxy, INotifier {
+        static NAME: string;
         public proxyName: string;
         public data: any;
 
@@ -360,7 +377,5 @@ declare module puremvc {
         public onRegister(): void;
 
         public onRemove(): void;
-
-        static NAME: string;
     }
 }
