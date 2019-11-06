@@ -6,7 +6,7 @@ import Mediator = puremvc.Mediator;
 import {Notifications} from "../static/notifications";
 import {BackgroundAnimationProxy} from "../proxy/background-animation-proxy";
 import {MyFacade} from "../facade/my-facade";
-import {BackgroundAnimationView} from "../views/background-animation-view";
+import {BackgroundAnimationView} from "../view-components/background-animation-view";
 import {ProxiesNames} from "../static/names";
 
 export class BackgroundAnimationMediator extends Mediator {

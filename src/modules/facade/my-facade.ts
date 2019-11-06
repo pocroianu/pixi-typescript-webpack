@@ -6,7 +6,7 @@ import Facade = puremvc.Facade;
 import {LoadPixiSpineCommand} from "../commands/load-pixi-spine-command";
 import {BackgroundAnimationMediator} from "../mediators/background-animation-mediator";
 import {Notifications} from "../static/notifications";
-import {BackgroundAnimationView} from "../views/background-animation-view";
+import {BackgroundAnimationView} from "../view-components/background-animation-view";
 import {BackgroundAnimationProxy} from "../proxy/background-animation-proxy";
 import {Keys} from "../static/keys";
 import {Parameters} from "../static/parameters";
@@ -31,11 +31,34 @@ export class MyFacade extends Facade {
      */
     initializeFacade(): void {
         super.initializeFacade();
-        this.initializePixiApp();
-        this.registerCommands();
-        this.registerMediators();
-        this.registerProxies();
         this.initializeModules();
+    }
+
+    /**
+     * @inheritDoc
+     */
+    initializeModel(): void {
+        super.initializeModel();
+        this.registerProxy(new BackgroundAnimationProxy(ProxiesNames.BACKGROUND_ANIMATION_PROXY_NAME));
+    }
+
+    /**
+     * @inheritDoc
+     */
+    initializeView(): void {
+        super.initializeView();
+        this.initializePixiApp();
+        this.registerMediator(
+            new BackgroundAnimationMediator(MediatorNames.BACKGROUND_ANIMATION_VIEW_NAME,
+                new BackgroundAnimationView(ViewsNames.BACKGROUND_ANIMATION_NAME, this._pixiApp.stage)));
+    }
+
+    /**
+     * @inheritDoc
+     */
+    initializeController(): void {
+        super.initializeController();
+        this.registerCommand(Notifications.LOAD_PIXI_SPINE, LoadPixiSpineCommand);
     }
 
     /**
@@ -49,29 +72,6 @@ export class MyFacade extends Facade {
 
         this._pixiApp.ticker.add((delta) => {
         });
-    }
-
-    /**
-     * Registers the commands
-     */
-    protected registerCommands(): void {
-        this.registerCommand(Notifications.LOAD_PIXI_SPINE, LoadPixiSpineCommand);
-    }
-
-    /**
-     * Registers the mediators
-     */
-    protected registerMediators(): void {
-        this.registerMediator(
-            new BackgroundAnimationMediator(MediatorNames.BACKGROUND_ANIMATION_VIEW_NAME,
-                new BackgroundAnimationView(ViewsNames.BACKGROUND_ANIMATION_NAME, this._pixiApp.stage)));
-    }
-
-    /**
-     * Registers the proxies
-     */
-    protected registerProxies(): void {
-        this.registerProxy(new BackgroundAnimationProxy(ProxiesNames.BACKGROUND_ANIMATION_PROXY_NAME));
     }
 
     /**
