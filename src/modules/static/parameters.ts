@@ -4,7 +4,7 @@
 
 import ApplicationOptions = PIXI.ApplicationOptions;
 
-export class Parameters{
+export class Parameters {
 
     public static PIXI_APPLICATION_SETTINGS: ApplicationOptions = {
         backgroundColor: 0x000000,

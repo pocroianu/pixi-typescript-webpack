@@ -8,7 +8,7 @@ export class BackgroundAnimationProxy extends Proxy {
 
     public animationName: string = 'assets/Background_FrontalGarden_Landscape.json';
 
-    constructor(proxyName?: string, data?: any){
+    constructor(proxyName?: string, data?: any) {
         super(proxyName, data);
     }
 }

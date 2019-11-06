@@ -10,7 +10,7 @@ export class Main {
     private _facade: MyFacade;
 
     constructor() {
-        this._facade= new MyFacade(Keys.FACADE_KEY);
+        this._facade = new MyFacade(Keys.FACADE_KEY);
     }
 
 }

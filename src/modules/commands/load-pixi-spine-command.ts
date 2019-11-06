@@ -6,7 +6,7 @@ import SimpleCommand = puremvc.SimpleCommand;
 import {Notifications} from "../static/notifications";
 import Spine = PIXI.spine.Spine;
 
-export class LoadPixiSpineCommand extends SimpleCommand{
+export class LoadPixiSpineCommand extends SimpleCommand {
 
     execute(notification: puremvc.INotification): void {
         super.execute(notification);
@@ -19,7 +19,7 @@ export class LoadPixiSpineCommand extends SimpleCommand{
                 // Creating the pixi spine
                 let spine: Spine = new PIXI.spine.Spine(resources.spine.spineData);
 
-                this.sendNotification(Notifications.SEND_SPINE_RESOURCES,{
+                this.sendNotification(Notifications.SEND_SPINE_RESOURCES, {
                     spine: spine
                 });
             });

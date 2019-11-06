@@ -23,7 +23,7 @@ export class BackgroundAnimationView extends View {
         this._backgroundSpineAnimation = spine;
 
         // Setting the spine's position
-        this._backgroundSpineAnimation.position.set(1000,1000);
+        this._backgroundSpineAnimation.position.set(1000, 1000);
         this._backgroundSpineAnimation.skeleton.setSkin(this._backgroundSpineAnimation.spineData.skins[1]);
 
         // Adding the spine to the display
@@ -33,7 +33,7 @@ export class BackgroundAnimationView extends View {
         console.log(this._backgroundSpineAnimation);
 
         // Playing the animation
-        let animationName: string=this._backgroundSpineAnimation.spineData.animations[0].name;
+        let animationName: string = this._backgroundSpineAnimation.spineData.animations[0].name;
         this._backgroundSpineAnimation.state.setAnimation(0, animationName, true);
 
     }
