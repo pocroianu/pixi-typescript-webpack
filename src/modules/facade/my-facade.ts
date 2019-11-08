@@ -4,13 +4,13 @@
 
 import Facade = puremvc.Facade;
 import {LoadPixiSpineCommand} from "../commands/load-pixi-spine-command";
-import {BackgroundAnimationMediator} from "../mediators/background-animation-mediator";
 import {Notifications} from "../static/notifications";
-import {BackgroundAnimationView} from "../view-components/background-animation-view";
 import {BackgroundAnimationProxy} from "../proxy/background-animation-proxy";
 import {Keys} from "../static/keys";
 import {Parameters} from "../static/parameters";
 import {MediatorNames, ProxiesNames, ViewsNames} from "../static/names";
+import {MainView} from "../view/main-view";
+import View = puremvc.View;
 
 export class MyFacade extends Facade {
 
@@ -46,11 +46,9 @@ export class MyFacade extends Facade {
      * @inheritDoc
      */
     initializeView(): void {
-        super.initializeView();
-        this.initializePixiApp();
-        this.registerMediator(
-            new BackgroundAnimationMediator(MediatorNames.BACKGROUND_ANIMATION_VIEW_NAME,
-                new BackgroundAnimationView(ViewsNames.BACKGROUND_ANIMATION_NAME, this._pixiApp.stage)));
+        this.view = null;
+        View.instanceMap[Keys.FACADE_KEY] = null;
+        this.view = MainView.getInstance(Keys.FACADE_KEY);
     }
 
     /**
@@ -61,18 +59,6 @@ export class MyFacade extends Facade {
         this.registerCommand(Notifications.LOAD_PIXI_SPINE, LoadPixiSpineCommand);
     }
 
-    /**
-     * Initializes the PIXI Application
-     */
-    protected initializePixiApp(): void {
-        this._pixiApp = new PIXI.Application(window.innerWidth, window.innerHeight, Parameters.PIXI_APPLICATION_SETTINGS);
-        document.body.appendChild(this._pixiApp.view);
-
-        this._pixiApp.start();
-
-        this._pixiApp.ticker.add((delta) => {
-        });
-    }
 
     /**
      * Initializes the modules
