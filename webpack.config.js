@@ -10,17 +10,30 @@ let assetsToCopy = [
         to: path.resolve("public/assets")
     },
     {
-        from: path.resolve("src", 'pixi'),
-        to: path.resolve("public/js")
-    },
-    {
-        from: path.resolve("src", 'app'),
+        from: path.resolve("src", 'html'),
         to: path.resolve("public")
     },
+    {
+        from: path.join(__dirname, 'node_modules/pixi.js/dist/pixi.js'),
+        to: path.join(__dirname, publicFolder, "js")
+    },
+    {
+        from: path.join(__dirname, 'node_modules/pixi.js/dist/pixi.min.js'),
+        to: path.join(__dirname, publicFolder, "js")
+    },
+    {
+        from: path.join(__dirname, 'node_modules/pixi-spine/bin/pixi-spine.js'),
+        to: path.join(__dirname, publicFolder, "js")
+    },
+    {
+        from: path.join(__dirname, 'node_modules/puremvc/lib/puremvc-1.0.1.js'),
+        to: path.join(__dirname, publicFolder, "js")
+    }
 ];
 
 
 module.exports = {
+    devtool: 'inline-source-map',
     mode: 'development',
     entry: "./src/index.ts",
     output: {
@@ -41,5 +54,16 @@ module.exports = {
     },
     plugins: [
         new CopyWebpackPlugin(assetsToCopy)
-    ]
+    ],
+    externals: {
+        "pixi.js": {
+            root: 'PIXI'
+        },
+        "pixi-spine": {
+            root: 'PIXI.spine'
+        },
+        "puremvc": {
+            root: "puremvc"
+        }
+    },
 };
