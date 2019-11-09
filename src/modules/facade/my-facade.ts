@@ -7,14 +7,11 @@ import {LoadPixiSpineCommand} from "../commands/load-pixi-spine-command";
 import {Notifications} from "../static/notifications";
 import {BackgroundAnimationProxy} from "../proxy/background-animation-proxy";
 import {Keys} from "../static/keys";
-import {Parameters} from "../static/parameters";
 import {MediatorNames, ProxiesNames, ViewsNames} from "../static/names";
 import {MainView} from "../view/main-view";
 import View = puremvc.View;
 
 export class MyFacade extends Facade {
-
-    private _pixiApp: PIXI.Application;
 
     /**
      * Returns the instance of MyFacade
