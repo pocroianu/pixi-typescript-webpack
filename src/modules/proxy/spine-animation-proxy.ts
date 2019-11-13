@@ -4,7 +4,7 @@
 
 import Proxy = puremvc.Proxy;
 
-export class BackgroundAnimationProxy extends Proxy {
+export class SpineAnimationProxy extends Proxy {
 
     public animationName: string = 'assets/Background_FrontalGarden_Landscape.json';
 

@@ -7,21 +7,14 @@ import Container = PIXI.Container;
 import WebGLRenderer = PIXI.WebGLRenderer;
 import CanvasRenderer = PIXI.CanvasRenderer;
 import {Parameters} from "../static/parameters";
+import {SpineAnimationMediator} from "../mediators/spine-animation-mediator";
+import {SpineAnimationUiComponent} from "../ui-components/spine-animation-ui-component";
+import {MediatorNames} from "../static/names";
 
 export class MainView extends View {
 
     private _pixiStage: Container;
     private _pixiRenderer: WebGLRenderer | CanvasRenderer;
-
-    initializeView(): void {
-        super.initializeView();
-        this._pixiRenderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight, Parameters.PIXI_APPLICATION_SETTINGS);
-        document.body.appendChild(this._pixiRenderer.view);
-
-        // create the root of the scene graph
-        this._pixiStage = new PIXI.Container();
-        this.addGraphics();
-    }
 
     /**
      *
@@ -34,8 +27,40 @@ export class MainView extends View {
         return View.instanceMap[key] as MainView;
     }
 
+    /**
+     * @inheritDoc
+     */
+    initializeView(): void {
+        super.initializeView();
+        this.createPixiApplication();
+        this.registerMediators();
+        this.addGraphics();
+        this.startRendering();
+    }
 
-    addGraphics(): void {
+    protected registerMediators(): void {
+        let spineAnimationUiComponent: Container = new SpineAnimationUiComponent();
+        this.registerMediator(new SpineAnimationMediator(MediatorNames.SPINE_ANIMATION_MEDIATOR, spineAnimationUiComponent));
+        this.addUiComponent(spineAnimationUiComponent);
+    }
+
+    protected addUiComponent(uiComponent: Container): void {
+        this._pixiStage.addChild(uiComponent);
+    }
+
+    /**
+     * Creates the PIXI Application
+     */
+    protected createPixiApplication(): void {
+        this._pixiRenderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight, Parameters.PIXI_APPLICATION_SETTINGS);
+        document.body.appendChild(this._pixiRenderer.view);
+
+        // create the root of the scene graph
+        this._pixiStage = new PIXI.Container();
+    }
+
+
+    protected addGraphics(): void {
         let graphics = new PIXI.Graphics();
 
         // set a fill and line style
@@ -66,9 +91,14 @@ export class MainView extends View {
         graphics.drawCircle(470, 90, 60);
         graphics.endFill();
 
-
         this._pixiStage.addChild(graphics);
 
+    }
+
+    /**
+     * Starts the rendering process of the PIXI Application
+     */
+    protected startRendering(): void {
         let animate = () => {
             this._pixiRenderer.render(this._pixiStage);
             requestAnimationFrame(animate);
@@ -76,7 +106,6 @@ export class MainView extends View {
 
         // run the render loop
         animate();
-
     }
 
 

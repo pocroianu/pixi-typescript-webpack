@@ -3,13 +3,13 @@
  */
 
 export class MediatorNames {
-    public static BACKGROUND_ANIMATION_VIEW_NAME: string = "BackgroundAnimationMediator";
+    public static SPINE_ANIMATION_MEDIATOR: string = "BackgroundAnimationMediator";
 }
 
 export class ProxiesNames {
-    public static BACKGROUND_ANIMATION_PROXY_NAME: string = "BackgroundAnimationProxy";
+    public static SPINE_ANIMATION_PROXY: string = "SpineAnimationProxy";
 }
 
-export class ViewsNames {
-    public static BACKGROUND_ANIMATION_NAME: string = "BackgroundAnimationView";
+export class UiComponentsNames {
+    public static SPINE_ANIMATION_UI_COMPONENT: string = "BackgroundAnimationView";
 }

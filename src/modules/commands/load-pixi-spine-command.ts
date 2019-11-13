@@ -11,6 +11,8 @@ export class LoadPixiSpineCommand extends SimpleCommand {
     execute(notification: puremvc.INotification): void {
         super.execute(notification);
 
+        console.log('Spine Loaded');
+
         // Loading the spine into the PIXI loader
         PIXI.loader
             .add('spine', notification.getBody().spineName)
