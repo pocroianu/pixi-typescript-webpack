@@ -53,7 +53,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new CopyWebpackPlugin(assetsToCopy)
+        new CopyWebpackPlugin({patterns: assetsToCopy})
     ],
     externals: {
         "pixi.js": {
