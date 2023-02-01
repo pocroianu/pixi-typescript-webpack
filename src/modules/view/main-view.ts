@@ -34,7 +34,7 @@ export class MainView extends View {
         super.initializeView();
         this.createPixiApplication();
         this.registerMediators();
-        this.addGraphics();
+        // this.addGraphics();
         this.startRendering();
     }
 
